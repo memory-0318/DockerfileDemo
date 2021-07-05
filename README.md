@@ -28,6 +28,7 @@ WORKDIR /app
 CMD "java" "-jar" "application.jar"
 ```
 * 執行`docker build -t app .`產生Image，並將產生的Image加上Tag：`app`
+  > 建置的過程會比較久，大約3~5分鐘不等，或甚至更長
 * 執行`docker run -p 8080:8080 -t app`
   * 使用Tag名稱為`app`的Image建立Container，並將Container的port 8080對應到本機的port 8080，如此就可以直接在瀏覽器輸入[http://localhost:8080/hello](http://localhost:8080/hello) 
   訪問服務並取得回傳資料。
