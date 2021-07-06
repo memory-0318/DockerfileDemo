@@ -8,6 +8,29 @@
 
 ## 範例
 
+* 為了可以將Spring Boot應用程式打包進Image，需要在pom.xml加上以下設定：
+    ```xml
+    <project ...>
+        <!-- other settiungs -->
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+        <!-- other settings -->
+    </project>
+    ```
+  若不加上該設定，會導致Container無法執行並在log中顯示錯誤訊息： `no main manifest attribute, in target/<jar filename>.jar`
 * 將Dockerfile放在根目錄下，內容與說明如下：
 
 ```dockerfile
